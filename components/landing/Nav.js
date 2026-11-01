@@ -83,6 +83,7 @@ export default function Nav({ currentPath = '/' }) {
   }, [router.events]);
 
   const standardNavLinks = [
+    { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'Features', href: '/features' },
     { name: 'Pricing', href: '/pricing' },
