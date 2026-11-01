@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -153,7 +154,7 @@ export default function Nav({ currentPath = '/' }) {
           ref={toggleButtonRef}
           id="mobile-nav-toggle"
           type="button"
-          className="lg:hidden text-foreground p-2 rounded-lg hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="relative z-[70] lg:hidden text-foreground min-h-11 min-w-11 inline-flex items-center justify-center rounded-lg hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-nav-drawer"
@@ -167,14 +168,14 @@ export default function Nav({ currentPath = '/' }) {
         </button>
       </div>
 
-      {mobileMenuOpen && (
+      {mobileMenuOpen && typeof document !== 'undefined' && createPortal(
         <div
           ref={drawerRef}
           id="mobile-nav-drawer"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation menu"
-          className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-[#faf8f4]/98 backdrop-blur-xl border-t border-gold-300/30 z-40 p-6 flex flex-col justify-between overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200"
+          className="lg:hidden fixed inset-x-0 top-[76px] bottom-0 sm:top-[84px] bg-[#faf8f4] border-t border-gold-300/30 z-[60] p-6 flex flex-col justify-between overflow-y-auto"
         >
           <div className="flex flex-col gap-2">
             {standardNavLinks.map((link) => (
@@ -207,7 +208,8 @@ export default function Nav({ currentPath = '/' }) {
               Request Demo
             </Link>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </nav>
   );
