@@ -1,0 +1,8 @@
+# Public marketing website (indexable)
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://octis.in/sitemap.xml

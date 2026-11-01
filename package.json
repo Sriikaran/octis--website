@@ -1,0 +1,30 @@
+{
+  "name": "octis-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official marketing website and appointment booking portal for Octis Precious Metals Software Ecosystem",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:audit": "node scripts/comprehensive_audit_test.js",
+    "test:metals": "node scripts/metal_rates_test.mjs"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.363.0",
+    "next": "14.2.35",
+    "pg": "^8.23.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
